@@ -81,3 +81,43 @@ clicked_pos <- table(data_clicked['position'])
 plot(clicked_pos)
 
 ######## numeric variables ######## 
+plot(data$visitor_hist_starrating)
+plot(visitor_hist_adr_usd)
+
+####### CHECK NORMALITY #######
+plot(data$site_id)
+
+
+
+####### CHECK CORRELATION #######
+cor.test(data$click_bool,data$booking_bool,method="spearman") # clicked / booked | p-value < 2.2e-16 : reject
+cor.test(data$site_id,data$booking_bool,method="spearman") # site_id | p-value = 6.797e-05 : reject
+cor.test(data$visitor_location_country_id,data$booking_bool,method="spearman") # visitor_location_country_id | p-value = 0.006938 : reject
+cor.test(data$visitor_hist_starrating,data$booking_bool,method="spearman") # visitor_hist_starrating
+cor.test(data$visitor_hist_adr_usd,data$booking_bool,method="spearman") # visitor_hist_adr_usd
+cor.test(data$prop_country_id,data$booking_bool,method="spearman") # prop_country_id | p-value = 0.004903 : reject
+
+cor.test(data$prop_starrating,data$booking_bool,method="spearman") # prop_starrating | p-value < 2.2e-16 : reject
+cor.test(data$prop_review_score,data$booking_bool,method="spearman") # prop_review_score | 
+cor.test(data$prop_brand_bool,data$booking_bool,method="spearman") # prop_brand_bool | 
+
+cor.test(data$prop_brand_bool,data$booking_bool,method="spearman") # prop_location_score1 / prop_location_score2 |
+cor.test(data$prop_brand_bool,data$booking_bool,method="spearman") # prop_location_score1 | 
+
+cor.test(data$prop_log_historical_price,data$booking_bool,method="spearman") # prop_log_historical_price |
+cor.test(data$promotion_flag,data$booking_bool,method="spearman") # promotion_flag | p-value < 2.2e-16 : reject
+cor.test(data$srch_destination_id,data$booking_bool,method="spearman") # srch_destination_id | 
+cor.test(data$srch_length_of_stay,data$booking_bool,method="spearman") # srch_length_of_stay | 
+
+
+
+cor.test(data_clicked$prop_country_id,data_clicked$booking_bool,method="spearman") # p-value < 2.2e-16 : reject
+
+cor.test(data$srch_adults_count,data$booking_bool,method="spearman") # srch_adults_count | p-value < 2.2e-16 : reject
+cor.test(data$srch_booking_window,data$booking_bool,method="spearman") # srch_booking_window | p-value < 2.2e-16 : reject
+
+
+
+
+
+
